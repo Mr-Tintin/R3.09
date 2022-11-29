@@ -21,6 +21,7 @@ class Root(QMainWindow):
         self.setGeometry(y_pos, x_pos, width, height)
         self.setWindowTitle("TEST")
         self.ui()
+
      
     def new_tab(self):
  

@@ -1,32 +1,32 @@
 import sys
-
-from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import *
-
-class MainWindow(QMainWindow):
-
-    def __init__(self):
-        super(MainWindow, self).__init__()
-
-        self.setWindowTitle("My App")
-
-        widget = QListWidget()
-        widget.addItems(["One", "Two", "Three"])
-
-        widget.currentItemChanged.connect(self.index_changed)
-        widget.currentTextChanged.connect(self.text_changed)
-
-        self.setCentralWidget(widget)
-
-
-    def index_changed(self, i): # Not an index, i is a QListItem
-        print(i.text())
-
-    def text_changed(self, s): # s is a str
-        print(s)
-
+widgets = [
+QCheckBox,
+QComboBox,
+QDateEdit,
+QDateTimeEdit,
+QDial,
+QDoubleSpinBox,
+QFontComboBox,
+QLCDNumber,
+QLabel,
+QLineEdit,
+QProgressBar,
+QPushButton,
+QRadioButton,
+QSlider,
+QSpinBox,
+QTimeEdit
+]
 app = QApplication(sys.argv)
-window = MainWindow()
-window.show()
-
-app.exec()
+root = QWidget()
+grid = QHBoxLayout()
+toolbar = QToolBar("My main toolbar")
+for w in widgets:
+    grid.addWidget(w())
+root.setLayout(grid)
+#root.resize(250, 250)
+root.setWindowTitle("Hello world!")
+root.show()
+if __name__ == '__main__':
+    sys.exit(app.exec_())
