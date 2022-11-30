@@ -1,0 +1,24 @@
+import subprocess
+import platform
+import psutil
+import socket
+
+os = platform.system()
+
+ip = "127.0.0.1"
+port = 1818
+
+class client(self):
+    def __init__(self):
+        self.connect
+
+    def connect(self, ip, port):
+        client_socket = socket.socket()
+        client_socket.connect((ip, port))
+        message = ""
+        while message != "bye":
+            message = input("Message: ")
+            client_socket.send(message.encode())
+            data = client_socket.recv(1024).decode()
+            print(data)
+        client_socket.close()
