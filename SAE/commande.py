@@ -18,7 +18,7 @@ if os == "Windows":
             except subprocess.TimeoutExpired:
                 print(f"Timeout on command {x}")
             else:
-                txt = outs.decode('unicode_escape').rstrip("\r\n")
+                txt = outs.decode().rstrip("\r\n")
                 print(txt)
 
 elif os == "Linux":
@@ -36,7 +36,7 @@ elif os == "Linux":
             except subprocess.TimeoutExpired:
                 print(f"Timeout on command {x}")
             else:
-                txt = outs.decode('unicode_escape').rstrip("\r\n")
+                txt = outs.decode().rstrip("\r\n")
                 print(txt)
 
 elif os == "Darwin":
@@ -54,5 +54,5 @@ elif os == "Darwin":
             except subprocess.TimeoutExpired:
                 print(f"Timeout on command {x}")
             else:
-                txt = outs.decode('unicode_escape').rstrip("\r\n")
+                txt = outs.decode().rstrip("\r\n")
                 print(txt)
